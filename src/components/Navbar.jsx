@@ -22,7 +22,7 @@ export default function Navbar({ isLoggedIn }) {
           {/* Center: Menu (Desktop) */}
           <div className="hidden md:flex space-x-6">
             <Link href={"/"} className="hover:text-blue-500">Home</Link>
-            <Link href={"/all-tiles"} className="hover:text-blue-500">All Tiles</Link>
+            <Link href={"/tiles"} className="hover:text-blue-500">All Tiles</Link>
             <Link href={"/profile"} className="hover:text-blue-500">My Profile</Link>
           </div>
 
@@ -59,7 +59,7 @@ export default function Navbar({ isLoggedIn }) {
       {menuOpen && (
         <div className="md:hidden bg-gray-100 px-4 pb-4">
           <Link href={"/"} className="block py-2">Home</Link>
-          <Link href={"/all-tiles"} className="block py-2">All Tiles</Link>
+          <Link href={"/tiles"} className="block py-2">All Tiles</Link>
           <Link href={"/profile"} className="block py-2">My Profile</Link>
 
           {!isLoggedIn ? (
