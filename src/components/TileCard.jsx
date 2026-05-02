@@ -33,7 +33,7 @@ export default function TileCard({ tile}) {
 
         <div className="mt-auto">
           <Link
-            href={`/tiles/${tile.id}`}
+            href={`/tiles/${String(tile.id)}`}
             className="block text-center bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
           >
             View Details

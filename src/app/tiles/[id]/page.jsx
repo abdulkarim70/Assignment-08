@@ -1,11 +1,14 @@
-import { getTiles } from "@/lib/getTiles";
-
-const TilesDetails = async ({ params }) => {
+export default async function TilesDetails({ params }) {
   const id = params?.id;
 
-  const details = await getTiles();
+  const res = await fetch(
+    "https://assignment-08-five-theta.vercel.app/data.json",
+    { cache: "no-store" }
+  );
 
-  const tile = details.find((t) => t.id === id);
+  const tiles = await res.json();
+
+  const tile = tiles.find((t) => t.id === Number(id));
 
   if (!tile) {
     return <div>Tile not found</div>;
@@ -15,9 +18,6 @@ const TilesDetails = async ({ params }) => {
     <div>
       <h1>{tile.title}</h1>
       <p>{tile.description}</p>
-      <img src={tile.image} alt={tile.title} />
     </div>
   );
-};
-
-export default TilesDetails;
+}
