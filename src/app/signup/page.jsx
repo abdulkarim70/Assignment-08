@@ -1,20 +1,39 @@
 "use client";
-import { Button,  Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { authClient } from '@/lib/auth-client';
+import { Button, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 
 const SignupPage = () => {
-    return (
-        <Form className="flex w-96 flex-col gap-4 mx-auto mt-5" >
-<TextField
-        isRequired
-        name="name"
-        type="text"
-        
-      >
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const image = e.target.image.value;
+
+    
+
+    const { data, error } = await authClient.signUp.email({
+      name,
+      email,
+      password,
+      image
+    });
+
+    console.log(data, error);
+  };
+
+  return (
+    <Form
+      className="flex w-96 flex-col gap-4 mx-auto mt-5"
+      onSubmit={onSubmit}
+    >
+      <TextField isRequired name="name" type="text">
         <Label>Name</Label>
         <Input placeholder="Your Name Here" />
         <FieldError />
       </TextField>
-
 
       <TextField
         isRequired
@@ -31,6 +50,7 @@ const SignupPage = () => {
         <Input placeholder="john@example.com" />
         <FieldError />
       </TextField>
+
       <TextField
         isRequired
         minLength={8}
@@ -51,20 +71,26 @@ const SignupPage = () => {
       >
         <Label>Password</Label>
         <Input placeholder="Enter your password" />
-        <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
+        <Description>
+          Must be at least 8 characters with 1 uppercase and 1 number
+        </Description>
         <FieldError />
       </TextField>
+
+      <TextField isRequired name="image" type="text">
+        <Label>Image Url</Label>
+        <Input placeholder="Image URL" />
+        <FieldError />
+      </TextField>
+
       <div className="flex gap-2">
-        <Button type="submit">
-      
-          Submit
-        </Button>
+        <Button type="submit">Submit</Button>
         <Button type="reset" variant="secondary">
           Reset
         </Button>
       </div>
     </Form>
-    );
+  );
 };
 
 export default SignupPage;

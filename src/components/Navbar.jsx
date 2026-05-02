@@ -25,59 +25,33 @@ export default function Navbar({ isLoggedIn }) {
             <Link href={"/tiles"} className="hover:text-blue-500">All Tiles</Link>
             <Link href={"/profile"} className="hover:text-blue-500">My Profile</Link>
             <Link href={"/signup"} className="hover:text-blue-500">SignUp</Link>
+            <Link href={"/signin"} className="hover:text-blue-500">SignIn</Link>
+            <Link href={"/"} className="hover:text-blue-500">SignOut</Link>
 
           </div>
 
-          {/* Right: Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            {!isLoggedIn ? (
-              <Link href={"/login"}>
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                  Login
-                </button>
-              </Link>
-            ) : (
-              <>
-                <Link href= {"/profile"} className="hover:text-blue-500">
-                  Profile
-                </Link>
-                <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
-                  Logout
-                </button>
-              </>
-            )}
-          </div>
+        
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               ☰
             </button>
-          </div>
+          </div>  
         </div>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-gray-100 px-4 pb-4">
+        <div className="md:hidden bg-gray-100 px-4 pb-4 ">
           <Link href={"/"} className="block py-2">Home</Link>
           <Link href={"/tiles"} className="block py-2">All Tiles</Link>
           <Link href={"/profile"} className="block py-2">My Profile</Link>
+             <Link href={"/signup"} className='className="block py-2' >SignUp</Link>
+            <Link href={"/signin"} className="block py-2">SignIn</Link>
+            <Link href={"/"} className="block py-2">SignOut</Link>
 
-          {!isLoggedIn ? (
-            <Link href={"/login"}>
-              <button className="w-full mt-2 bg-blue-600 text-white py-2 rounded-lg">
-                Login
-              </button>
-            </Link>
-          ) : (
-            <>
-              <Link href={"/profile"} className="block py-2">Profile</Link>
-              <button className="w-full mt-2 bg-red-500 text-white py-2 rounded-lg">
-                Logout
-              </button>
-            </>
-          )}
+         
         </div>
       )}
     </nav>
