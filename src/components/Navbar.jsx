@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Navbar({ isLoggedIn }) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -47,7 +47,7 @@ export default function Navbar({ isLoggedIn }) {
           <Link href={"/"} className="block py-2">Home</Link>
           <Link href={"/tiles"} className="block py-2">All Tiles</Link>
           <Link href={"/profile"} className="block py-2">My Profile</Link>
-             <Link href={"/signup"} className='className="block py-2' >SignUp</Link>
+            <Link href={"/signup"} className="block py-2">SignUp</Link>
             <Link href={"/signin"} className="block py-2">SignIn</Link>
             <Link href={"/"} className="block py-2">SignOut</Link>
 
