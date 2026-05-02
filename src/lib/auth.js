@@ -2,8 +2,12 @@ import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
+console.log("SECRET:", process.env.BETTER_AUTH_SECRET);
+
+
 const client = new MongoClient(process.env.MONGODB_URI);
-await client.connect()
+
 const db = client.db("tiles-gallery");
 
 export const auth = betterAuth({
