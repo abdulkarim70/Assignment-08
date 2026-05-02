@@ -7,35 +7,31 @@ const SignupPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const name = e.target.name.value;
+   
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const image = e.target.image.value;
+    
 
     
 
     const { data, error } = await authClient.signUp.email({
-      name,
+     
       email,
       password,
-      image
+     
     });
 
     console.log(data, error);
   };
 
   return (
-    <Card className='border mx-auto w-125 p-10 mt-5'>
-      <h1>Sign Up</h1>
-      <Form
-      className="flex w-96 flex-col gap-4 mx-auto mt-5"
+   <Card className='border mx-auto w-125 p-10 mt-5'>
+    <h1>Sign In</h1>
+     <Form
+      className="flex w-96 flex-col gap-4 mx-auto "
       onSubmit={onSubmit}
     >
-      <TextField isRequired name="name" type="text">
-        <Label>Name</Label>
-        <Input placeholder="Your Name Here" />
-        <FieldError />
-      </TextField>
+    
 
       <TextField
         isRequired
@@ -49,7 +45,7 @@ const SignupPage = () => {
         }}
       >
         <Label>Email</Label>
-        <Input placeholder="Your email here" />
+        <Input placeholder="Your Email Here" />
         <FieldError />
       </TextField>
 
@@ -79,11 +75,6 @@ const SignupPage = () => {
         <FieldError />
       </TextField>
 
-      <TextField isRequired name="image" type="text">
-        <Label>Image Url</Label>
-        <Input placeholder="Image URL" />
-        <FieldError />
-      </TextField>
 
       <div className="flex gap-2">
         <Button type="submit">Submit</Button>
@@ -92,7 +83,7 @@ const SignupPage = () => {
         </Button>
       </div>
     </Form>
-    </Card>
+   </Card>
   );
 };
 
