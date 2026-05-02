@@ -2,7 +2,7 @@ export async function getTiles() {
   const res = await fetch(
     "https://assignment-08-five-theta.vercel.app/data.json",
     {
-      cache: "no-store", // always fresh data (optional)
+      cache: "no-store",
     }
   );
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function TileCard({ tile }) {
+export default function TileCard({ tile}) {
   return (
     <div className="bg-white border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col w-full">
       

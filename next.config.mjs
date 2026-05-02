@@ -5,7 +5,14 @@ const nextConfig = {
  images: {
     domains: ["i.ibb.co.com"],
   },
-
+images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ibb.co.com",
+      },
+    ],
+  },
   
 };
 

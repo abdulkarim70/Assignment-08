@@ -1,6 +1,6 @@
 [
   {
-    "id": "tile_001",
+    "id": "01",
     "title": "Ceramic Blue Tile",
     "description": "Premium ceramic tile with blue glaze finish",
     "image": "https://i.ibb.co.com/S7M45t1Q/1.webp",
@@ -12,7 +12,7 @@
     "inStock": true
   },
   {
-    "id": "tile_002",
+    "id": "02",
     "title": "Marble White Tile",
     "description": "Elegant white marble tile for modern interiors",
     "image": "https://i.ibb.co.com/DHMX2Ff5/2.webp",
@@ -24,7 +24,7 @@
     "inStock": true
   },
   {
-    "id": "tile_003",
+    "id": "03",
     "title": "Granite Black Tile",
     "description": "Durable granite tile with polished black finish",
     "image": "https://i.ibb.co.com/ZzPfb0r0/3.webp",
@@ -36,7 +36,7 @@
     "inStock": false
   },
   {
-    "id": "tile_004",
+    "id": "04",
     "title": "Wood Finish Tile",
     "description": "Wood-like texture tile for a natural look",
     "image": "https://i.ibb.co.com/FLn0cnjW/4.webp",
@@ -48,7 +48,7 @@
     "inStock": true
   },
   {
-    "id": "tile_005",
+    "id": "05",
     "title": "Glossy Beige Tile",
     "description": "Smooth glossy beige tile perfect for living rooms",
     "image": "https://i.ibb.co.com/Kx61j6Yw/5.webp",
@@ -60,7 +60,7 @@
     "inStock": true
   },
   {
-    "id": "tile_006",
+    "id": "06",
     "title": "Rustic Brown Tile",
     "description": "Rustic brown tile with textured surface",
     "image": "https://i.ibb.co.com/1fqRzvzF/6.webp",
@@ -72,7 +72,7 @@
     "inStock": true
   },
   {
-    "id": "tile_007",
+    "id": "07",
     "title": "Mosaic Pattern Tile",
     "description": "Colorful mosaic pattern tile for decorative walls",
     "image": "https://i.ibb.co.com/t94Xm7j/7.webp",
@@ -84,7 +84,7 @@
     "inStock": false
   },
   {
-    "id": "tile_008",
+    "id": "08",
     "title": "Matte Grey Tile",
     "description": "Modern matte grey tile for minimalist design",
     "image": "https://i.ibb.co.com/HDJhtMzp/8.webp",
@@ -96,7 +96,7 @@
     "inStock": true
   },
   {
-    "id": "tile_009",
+    "id": "09",
     "title": "Stone Texture Tile",
     "description": "Natural stone look tile with rough texture",
     "image": "https://i.ibb.co.com/MLxvTX4/9.webp",
@@ -108,7 +108,7 @@
     "inStock": true
   },
   {
-    "id": "tile_010",
+    "id": "10",
     "title": "Luxury Gold Tile",
     "description": "High-end tile with golden finish for luxury spaces",
     "image": "https://i.ibb.co.com/Qjbgz7VQ/10.webp",

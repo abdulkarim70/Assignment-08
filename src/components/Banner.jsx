@@ -26,7 +26,7 @@ export default function Banner() {
 
       </div>
       <div>
-        <Marquee>New Arrivals: Tile Gallery | Weekly Feature: Modern Geometric Patterns | Join the Community...
+        <Marquee >New Arrivals: Tile Gallery | Weekly Feature: Modern Geometric Patterns | Join the Community...
 </Marquee>
       </div>
     </section>
