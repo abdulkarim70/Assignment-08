@@ -14,10 +14,11 @@ const SignupPage = () => {
 
     
 
-    const { data, error } = await authClient.signUp.email({
+    const { data, error } = await authClient.signIn.email({
      
       email,
       password,
+      callbackURL:'/'
      
     });
 

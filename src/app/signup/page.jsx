@@ -1,9 +1,10 @@
 "use client";
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { useRouter } from 'next/navigation';
 
 const SignupPage = () => {
-
+const router =useRouter()
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -22,6 +23,9 @@ const SignupPage = () => {
     });
 
     console.log(data, error);
+    if(!error){
+      router.push('/signin')
+    }
   };
 
   return (
