@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { GrGoogle } from 'react-icons/gr';
 
 const SignupPage = () => {
 
@@ -24,6 +25,12 @@ const SignupPage = () => {
 
     console.log(data, error);
   };
+
+  const handleGoogleSignIn= async()=>{
+await authClient.signIn.social({
+  provider:'google'
+})
+  }
 
   return (
    <Card className='border mx-auto w-125 p-10 mt-5'>
@@ -84,6 +91,12 @@ const SignupPage = () => {
         </Button>
       </div>
     </Form>
+    <p className='text-center'>
+Or
+    </p>
+    <Button onClick={handleGoogleSignIn} variant='outline' className={'w-full'}>
+     <GrGoogle/> Sign In With Google
+    </Button>
    </Card>
   );
 };
