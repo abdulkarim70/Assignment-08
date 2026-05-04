@@ -21,6 +21,8 @@ export default async function TilesDetails({ params }) {
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">{tile.title}</h1>
       <p className="text-gray-700">{tile.description}</p>
+      <p className="text-gray-700"> Category: {tile.category}</p>
+      <p className="text-gray-700"> Dimensions: {tile.dimensions}</p>
       <h2 className="font-bold text-xl"> Price ${tile.price}</h2>
     </div>
   );
