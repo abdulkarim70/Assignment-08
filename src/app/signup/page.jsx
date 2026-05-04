@@ -32,7 +32,8 @@ const onSubmit = async (e) => {
     toast.success("Account created successfully");
 
     setTimeout(() => {
-      router.push("/");
+      router.push("/signin");
+      router.refresh()
     }, 1500);
   }
 };
