@@ -1,10 +1,13 @@
 export default async function TilesDetails({ params }) {
-  const id = params?.id;
+  const { id } = await params;
 
-  const res = await fetch(
-    "https://assignment-08-five-theta.vercel.app/data.json",
-    { cache: "no-store" }
-  );
+  const res = await fetch("https://assignment-08-five-theta.vercel.app/data.json", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
   const tiles = await res.json();
 
@@ -15,9 +18,9 @@ export default async function TilesDetails({ params }) {
   }
 
   return (
-    <div>
-      <h1>{tile.title}</h1>
-      <p>{tile.description}</p>
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-4">{tile.title}</h1>
+      <p className="text-gray-700">{tile.description}</p>
     </div>
   );
 }
