@@ -9,12 +9,12 @@ const router =useRouter()
 const onSubmit = async (e) => {
   e.preventDefault();
 
-  
+  const formData = new FormData(e.currentTarget);
 
-  const name = e.target.name.value;
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-  const image = e.target.image.value;
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const image = formData.get("image");
 
   const { data, error } = await authClient.signUp.email({
     name,
@@ -24,8 +24,6 @@ const onSubmit = async (e) => {
     callbackURL: "/",
   });
 
-  console.log(data, error);
-
   if (error) {
     toast.error(error.message || "Signup failed");
   } else {
@@ -33,7 +31,7 @@ const onSubmit = async (e) => {
 
     setTimeout(() => {
       router.push("/signin");
-      router.refresh()
+      router.refresh();
     }, 1500);
   }
 };
