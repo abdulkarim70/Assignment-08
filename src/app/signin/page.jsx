@@ -3,34 +3,50 @@ import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { GrGoogle } from 'react-icons/gr';
 
+import toast from 'react-hot-toast';
+import { VscErrorSmall } from 'react-icons/vsc';
 const SignupPage = () => {
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+const onSubmit = async (e) => {
+  e.preventDefault();
 
-   
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    
+  const email = e.target.email.value;
+  const password = e.target.password.value;
 
-    
+  const loadingToast = toast.loading("Signing in...");
 
-    const { data, error } = await authClient.signIn.email({
-     
-      email,
-      password,
-      callbackURL:'/'
-     
-    });
+  const { data, error } = await authClient.signIn.email({
+    email,
+    password,
+    callbackURL: "/",
+  });
 
-    console.log(data, error);
-  };
+  toast.dismiss(loadingToast);
 
-  const handleGoogleSignIn= async()=>{
-await authClient.signIn.social({
-  provider:'google'
-})
+  if (error) {
+    toast.error(error.message || "Login failed ");
+  } else {
+    toast.success("Login successful ");
   }
+
+  console.log(data, error);
+};
+
+const handleGoogleSignIn = async () => {
+  const loadingToast = toast.loading("Redirecting to Google...");
+
+  const { error } = await authClient.signIn.social({
+    provider: "google",
+  });
+
+  toast.dismiss(loadingToast);
+
+  if (error) {
+    toast.error("Google Sign-In failed");
+  } else {
+    toast.success("Opening Google...");
+  }
+};
 
   return (
    <Card className='border mx-auto w-125 p-10 mt-5'>

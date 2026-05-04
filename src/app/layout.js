@@ -2,6 +2,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const outfitFont = Outfit({
  
@@ -22,9 +23,14 @@ export default function RootLayout({ children }) {
     >
       <body className="">
    <Navbar/>
-       <main >
-         {children}
+     <Toaster position="top-center" />
+       
+       <main>  
+        {children}
+
        </main>
+        
+       
        <Footer/>
       </body>
     </html>

@@ -2,31 +2,40 @@
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const SignupPage = () => {
 const router =useRouter()
-  const onSubmit = async (e) => {
-    e.preventDefault();
+const onSubmit = async (e) => {
+  e.preventDefault();
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const image = e.target.image.value;
+  
 
-    
+  const name = e.target.name.value;
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+  const image = e.target.image.value;
 
-    const { data, error } = await authClient.signUp.email({
-      name,
-      email,
-      password,
-      image
-    });
+  const { data, error } = await authClient.signUp.email({
+    name,
+    email,
+    password,
+    image,
+    callbackURL: "/",
+  });
 
-    console.log(data, error);
-    if(!error){
-      router.push('/signin')
-    }
-  };
+  console.log(data, error);
+
+  if (error) {
+    toast.error(error.message || "Signup failed");
+  } else {
+    toast.success("Account created successfully");
+
+    setTimeout(() => {
+      router.push("/");
+    }, 1500);
+  }
+};
 
   return (
     <Card className='border mx-auto w-125 p-10 mt-5'>
@@ -90,7 +99,7 @@ const router =useRouter()
       </TextField>
 
       <div className="flex gap-2">
-        <Button type="submit">Submit</Button>
+        <Button  type="submit">Submit</Button>
         <Button type="reset" variant="secondary">
           Reset
         </Button>
